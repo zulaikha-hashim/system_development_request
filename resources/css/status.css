@@ -1,0 +1,47 @@
+.status-pending {
+    background-color: #f6c23e !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+}
+
+.status-approved {
+    background-color: #1CC88A !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+    width: 150px;
+}
+
+.status-rejected {
+    background-color: #E74A3B !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+    width: 150px;
+}
+
+.status-new {
+    background-color: #57d8d8 !important; /* Example color for New Application */
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+    width: 150px;
+}
+
+.status-in-progress {
+    background-color: #f6c23e !important; /* Example color for In Progress */
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+    width: 150px;
+}
+
+.status-completed {
+    background-color: #4e73df !important; /* Example color for Completed */
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    padding: 5px 10px !important;
+    width: 150px;
+}
+

@@ -1,0 +1,28 @@
+body {
+    padding-top: 56px; /* Adjust based on the height of the topbar */
+}
+#sidebar {
+    position: fixed;
+    top: 56px; /* Adjust based on the height of the topbar */
+    bottom: 0;
+    width: 250px; /* Adjust the width as needed */
+    overflow-y: auto;
+}
+#content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px;
+}
+.sidebar-brand {
+    margin-top: 20px; /* Adjust this value as needed */
+}
+.topbar {
+    padding: 2rem 1rem; /* Adjust the padding to reduce the height */
+    height: auto; /* Ensure the height adjusts based on the content */
+}
+.topbar .navbar-nav .nav-link {
+    font-size: 0.875rem; /* Adjust the font size for a slimmer appearance */
+}
+.text-danger {
+    color: red; /* Change color for required symbol */
+    margin-left: 4px; /* Add spacing */
+}

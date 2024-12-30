@@ -1,0 +1,46 @@
+.status-pending {
+    background-color: #f6c23e !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+}
+
+.status-approved {
+    background-color: #4e73df !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+    width: auto;
+}
+
+.status-rejected {
+    background-color: #E74A3B !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+    width: auto;
+}
+
+.status-new {
+    background-color: #858796 !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+    width: auto;
+}
+
+.status-inprogress {
+    background-color: #f5427b !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+    width: auto;
+}
+
+.status-completed {
+    background-color: #1CC88A !important;
+    color: #ffffff !important;
+    border-radius: 25px !important; 
+    padding: 5px 15px !important;
+    width: auto;
+}

@@ -1,0 +1,96 @@
+
+       body {
+            padding-top: 56px; /* Adjust based on the height of the topbar */
+        }
+        #sidebar {
+            position: fixed;
+            top: 56px; /* Adjust based on the height of the topbar */
+            bottom: 0;
+            width: 250px; /* Adjust the width as needed */
+            overflow-y: auto;
+        }
+        #content {
+            margin-left: 250px; /* Same as the width of the sidebar */
+            padding: 20px;
+        }
+        .sidebar-brand {
+            margin-top: 20px; /* Adjust this value as needed */
+        }
+        .topbar {
+            padding: 2rem 1rem; /* Adjust the padding to reduce the height */
+            height: auto; /* Ensure the height adjusts based on the content */
+        }
+        .topbar .navbar-nav .nav-link {
+            font-size: 0.875rem; /* Adjust the font size for a slimmer appearance */
+        }
+        
+        .text-danger {
+            color: red; /* Change color for required symbol */
+            margin-left: 4px; /* Add spacing */
+        }
+
+        .btn-same-width {
+        width: 120px; /* Set the desired width */
+        }
+
+       
+    .sidebar-heading {
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        margin-top: 15px;
+        color: #c0c0c0;
+    }
+
+    .nav-item .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        transition: all 0.3s ease-in-out;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+    .nav-item .nav-link:hover {
+        background-color: #39414d;
+        color: #ffffff;
+        transition: background-color 0.2s ease;
+    }
+
+    .dropdown-menu {
+        background-color: #2d333a;
+        border: none;
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+
+    .dropdown-menu .dropdown-item {
+        padding: 10px 20px;
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: #39414d;
+        color: #ffffff;
+    }
+
+    .dropdown-menu .dropdown-item i {
+        margin-right: 10px;
+        color: #adb5bd;
+    }
+
+    .sidebar .divider {
+        background-color: #495057;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      .fc-event {
+        background-color: #007bff;
+        color: white;
+      }
+      

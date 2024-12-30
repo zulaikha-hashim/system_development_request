@@ -1,0 +1,47 @@
+/* custom.css */
+body {
+    margin-top: 56px; /* Offset for the fixed navbar */
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px; /* Adjust this based on your navbar height */
+    left: 0;
+    bottom: 0;
+    width: 250px; /* Adjust the width as needed */
+    background-color: #f8f9fa; /* Light background color */
+    padding: 1rem;
+    border-right: 1px solid #dee2e6;
+    z-index: 100; /* Ensure it stays on top of other content */
+}
+
+.main-content {
+    margin-left: 250px; /* Offset for the sidebar width */
+    padding: 1rem;
+}
+
+/* Custom Navbar Styles */
+.navbar {
+    background-color: #343a40 !important; /* Dark gray background color for the navbar */
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff !important; /* White text color for the navbar links */
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #cccccc !important; /* Lighter gray text color for hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}

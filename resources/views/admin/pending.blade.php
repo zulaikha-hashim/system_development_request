@@ -1,0 +1,434 @@
+@extends('layouts.admin')
+@section('content')
+    <div class="d-sm-flex align-items-center justify-content-between mb-4" style="margin-top: 20px;">
+        <div>
+            <a href="{{ route('application.applicationAdminView') }}" class="text-dark" style="text-decoration: none;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 class="h3 mb-0 text-gray-800 d-inline">Application</h1>
+            <span class="h6 mb-0 text-gray-500 ml-2">Pending</span>
+        </div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0" style="background-color: transparent; border: none;">
+                <li class="breadcrumb-item"><a href="/admin/dashboard/">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/applications/">Application</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pending</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-calendar-alt"></i> Meeting Confirmation
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                                    Confirmation Date
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $intec_sdr_application->date_confirm ? \Carbon\Carbon::parse($intec_sdr_application->date_confirm)->format('d-m-Y') : 'N/A' }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                                    Time
+                                                </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {{ $intec_sdr_application->applications_time ?? 'N/A' }}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-bell"></i> System Development Request
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h1 class="text-center mb-4 text-dark">Application</h1>
+                                        <div class="row mb-3">
+                                            <div class="col-xl-4 col-md-8 mb-4">
+                                                <div class="card border-left-primary shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div
+                                                                    class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                                    Application ID</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                                    {{ $intec_sdr_application->applications_id }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Application Created Card -->
+                                            <div class="col-xl-4 col-md-8 mb-4">
+                                                <div class="card border-left-success shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div
+                                                                    class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                                    Application Created </div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                                    {{ $intec_sdr_application->created_at->format('F j, Y, g:i a') }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pending Requests Card Example -->
+                                            <div class="col-xl-4 col-md-8 mb-4">
+                                                <div class="card border-left-warning shadow h-100 py-2">
+                                                    <div class="card-body">
+                                                        <div class="row no-gutters align-items-center">
+                                                            <div class="col mr-2">
+                                                                <div
+                                                                    class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                                    Current Status</div>
+                                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                                    {{ $intec_sdr_application->status->status_name }}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <i class="fas fa-hourglass-half fa-2x text-gray-300"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="name" class="form-label">Applicant
+                                                    ID</label>
+                                                <input type="text" name="name" class="form-control"
+                                                    value="{{ $intec_sdr_application->applicant_id }}" id="name"
+                                                    disabled>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="applicantIc" class="form-label">NRIC</label>
+                                                <input type="text" name="applicantIc" class="form-control"
+                                                    id="applicantIc"
+                                                    value="{{ $intec_sdr_application->applicant->applicant_ic }}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="applicantName" class="form-label">Full
+                                                    Name</label>
+                                                <input type="text" name="applicantName" class="form-control"
+                                                    id="applicantName"
+                                                    value="{{ $intec_sdr_application->applicant->applicant_name }}"
+                                                    disabled>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="applicantPhone" class="form-label">Contact
+                                                    Number</label>
+                                                <input type="text" name="applicantPhone" class="form-control"
+                                                    id="applicantPhone"
+                                                    value="{{ $intec_sdr_application->applicant->applicant_phone }}"
+                                                    disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label for="applicantEmail" class="form-label">Email
+                                                    Address</label>
+                                                <input type="text" name="applicantEmail" class="form-control"
+                                                    id="applicantEmail"
+                                                    value="{{ $intec_sdr_application->applicant->applicant_email }}"
+                                                    disabled>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="depart" class="form-label">Department</label>
+                                                <input type="text" name="depart" class="form-control" id="depart"
+                                                    value="{{ $intec_sdr_application->applicant->applicant_depart }}"
+                                                    disabled>
+                                            </div>
+                                        </div>
+
+                                        <hr style="border: none; height: 1px; background-color: #ddd; margin: 25px 0;">
+
+                                        <div class="mb-3">
+                                            <label for="applicationName" class="form-label">System
+                                                Development Name</label>
+                                            <input type="text" name="applicationName" class="form-control"
+                                                id="applicationName"
+                                                value="{{ $intec_sdr_application->applications_system_name }}" disabled>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="applicationDesc" class="form-label">System
+                                                Description</label>
+                                            <textarea name="applicationDesc" class="form-control" id="applicationDesc" rows="4" disabled>{{ $intec_sdr_application->applications_system_desc }}</textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="applicationUrgency" class="form-label">Urgency</label>
+                                            <input type="text" name="applicationUrgency" class="form-control"
+                                                id="applicationUrgency"
+                                                value="{{ $intec_sdr_application->applications_urgency }}" disabled>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="file" class="form-label">Attached Document</label>
+                                            <div class="mt-2">
+                                                @if (isset($file))
+                                                    <a target="_blank"
+                                                        href="/get-file/{{ $file->applications_id ?? 'N/A' }}"
+                                                        class="btn btn-secondary btn-sm"><i class="fas fa-file-alt"></i>
+                                                        View Document</a>
+                                                @else
+                                                    <button class="btn btn-danger btn-sm" disabled><i
+                                                            class="fas fa-times-circle"></i> Not Available</button>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr style="border: none; height: 1px; background-color: #ddd; margin: 25px 0;">
+
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-danger mr-4 flex-grow-1" data-bs-toggle="modal"
+                                        data-bs-target="#rejectModal">
+                                        <i class="fas fa-times-circle"></i> Reject
+                                    </button>
+                                    <button type="button" class="btn btn-success  flex-grow-1" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        <i class="fas fa-check-circle"></i> Approve
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (approve) -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="staticBackdropLabel">
+                        Approve</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="updateForm" method="POST"
+                        action="{{ route('approve', ['applications_id' => $intec_sdr_application->applications_id]) }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="assignDev" class="form-label">Developer<span
+                                        style="color: red;">*</span></label>
+                                <select id="assignDev" name="assignDev" class="form-select custom-select-width">
+                                    <option selected disabled>Select Developer</option>
+                                    @if ($developers && $developers->count() > 0)
+                                        @foreach ($developers as $developer)
+                                            <option value="{{ $developer->dev_id }}">{{ $developer->dev_name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option disabled>No developers available</option>
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="deadline" class="form-label">Deadline<span
+                                        style="color: red;">*</span></label>
+                                <input type="text" name="deadline" class="form-control datepicker" id="dateline"
+                                    placeholder="Select a date">
+                            </div>
+                        </div>
+                        <input type="hidden" name="type_id" id="type_id">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary"><i
+                                    class="fas fa-paper-plane me-2"></i>Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of Modal (approve) -->
+
+    <!-- Modal (reject) -->
+    <div class="modal fade" id="rejectModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="rejectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fs-5" id="rejectModalLabel">
+                        Reject</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="rejectForm" method="POST"
+                        action="{{ route('reject', ['applications_id' => $intec_sdr_application->applications_id]) }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label for="remark" class="form-label">Remark<span style="color: red;">*</span></label>
+                                <textarea name="remark" class="form-control" id="remark" placeholder="Enter rejection remark" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <input type="hidden" name="type_id" id="type_id">
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                minDate: "today"
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            @if (session('success'))
+                Swal.fire({
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
+
+
+        let isSubmitted = false;
+
+        document.getElementById('updateForm').onsubmit = function(event) {
+            if (isSubmitted) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Already Submitted!',
+                    text: 'You have already submitted this application.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                isSubmitted = true;
+                Swal.fire({
+                    title: 'Confirm Submission',
+                    text: "Are you sure you want to submit?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, submit it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    } else {
+                        isSubmitted = false;
+                    }
+                });
+                event.preventDefault();
+            }
+        };
+
+        document.getElementById('rejectForm').onsubmit = function(event) {
+            if (isSubmitted) {
+                event.preventDefault();
+                Swal.fire({
+                    title: 'Already Submitted!',
+                    text: 'You have already rejected this application.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                isSubmitted = true;
+                Swal.fire({
+                    title: 'Confirm Submission',
+                    text: "Are you sure you want to reject?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, reject it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    } else {
+                        isSubmitted = false;
+                    }
+                });
+                event.preventDefault();
+            }
+        };
+    </script>
+@endsection
